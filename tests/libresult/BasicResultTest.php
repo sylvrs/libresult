@@ -15,6 +15,7 @@ declare(strict_types=1);
 
 namespace libresult;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
@@ -24,7 +25,9 @@ class BasicResultTest extends TestCase {
 		$result = $this->generateRandomOk();
 		$value = match (true) {
 			$result instanceof Ok => $result->getValue(),
-			$result instanceof Err => throw new RuntimeException("Expected Ok, got Err")
+			$result instanceof Err => throw new RuntimeException("Expected Ok, got Err"),
+			// This will NEVER happen, but it's here to make PHPStan happy
+			default => throw new Exception("Expected Ok, got unknown")
 		};
 		$this->assertIsInt($value);
 	}
@@ -33,7 +36,9 @@ class BasicResultTest extends TestCase {
 		$result = $this->generateErr();
 		$value = match (true) {
 			$result instanceof Ok => throw new RuntimeException("Expected Ok, got Err"),
-			$result instanceof Err => $result->getError()
+			$result instanceof Err => $result->getError(),
+			// This will NEVER happen, but it's here to make PHPStan happy
+			default => throw new Exception("Expected Err, got unknown")
 		};
 		$this->assertIsString($value);
 	}
