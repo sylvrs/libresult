@@ -50,18 +50,16 @@ class BasicResultTest extends TestCase {
 	}
 
 	/**
-	 * @group skip
-	 *
 	 * @return Result<int, string>
 	 */
-	protected function generateRandomOk(): Result {
+	private function generateRandomOk(): Result {
 		return new Ok(mt_rand(0, 100));
 	}
 
 	/**
 	 * @return Result<int, string>
 	 */
-	protected function generateErr(): Result {
+	private function generateErr(): Result {
 		return new Err("uh, oh!");
 	}
 }
