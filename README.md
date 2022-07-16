@@ -15,7 +15,7 @@ $result = create_result();
 ```
 
 ## Value Extraction
-From there, there are several different ways to get the values from the result:
+From there, there are several ways to get the values from the result:
 ```php
 // Using PHP's match expression
 $value = match (true) {
