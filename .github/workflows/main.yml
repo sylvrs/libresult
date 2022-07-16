@@ -1,0 +1,24 @@
+name: Continuous Integration
+on: [push]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php:
+          - "8.0"
+          - "8.1"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "${{ matrix.php }}"
+          extensions: yaml
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction
+      # PHPStan
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyze
+      # PHPUnit
+      - name: Run PHPUnit
+        run: ./vendor/bin/phpunit --bootstrap vendor/autoload.php --configuration tests/phpunit.xml
