@@ -25,7 +25,7 @@ final class Ok extends Result {
 	/**
 	 * @param TValue $value
 	 */
-	public function __construct(public mixed $value) {
+	public function __construct(private mixed $value) {
 		parent::__construct();
 	}
 

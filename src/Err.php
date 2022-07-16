@@ -25,7 +25,7 @@ final class Err extends Result {
 	/**
 	 * @param TError $error
 	 */
-	public function __construct(public mixed $error) {
+	public function __construct(private mixed $error) {
 		parent::__construct();
 	}
 
