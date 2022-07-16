@@ -1,8 +1,10 @@
-# Usage
+# libresult
 This library is a PHP-based implementation of the `Result` monad that exists in many popular programming languages, including Haskell, Elm, Kotlin, and Rust.
+
+## Usage
 The usage of the library follows similar standards to that of monads in other languages.
 
-## Creating a result
+### Creating a result
 The basic creation of a result is as follows:
 ```php
 /**
@@ -14,7 +16,7 @@ function create_result(): Result {
 $result = create_result();
 ```
 
-## Value Extraction
+### Value Extraction
 From there, there are several ways to get the values from the result:
 ```php
 // Using PHP's match expression
@@ -33,7 +35,7 @@ $value = $result->unwrap();
 ```
 
 
-## Useful Methods
+### Useful Methods
 Furthermore, there are other methods that may prove useful for working with results:
 ```php
 // Using `Result->asArray()`
@@ -43,12 +45,12 @@ Furthermore, there are other methods that may prove useful for working with resu
 $value = $result->getOr("default value");
 ```
 
-## Error Handling
+### Error Handling
 For cases where you know that the result is an error, you can use `Result->unwrapError()`:
 ```php
 // Note: If the result is *not* an error, this will throw an exception
 $error = $result->unwrapError();
 ```
 
-# Issues / Feature Requests
+## Issues / Feature Requests
 Any issues or requests should be reported [here](https://github.com/sylvrs/libresult/issues).
