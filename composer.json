@@ -1,6 +1,7 @@
 {
     "name": "sylvrs/libresult",
     "description": "A library to add the Result monad from other popular programming languages",
+    "version": "0.1.0",
     "type": "library",
     "license": "MIT",
     "autoload": {
