@@ -20,8 +20,8 @@ use RuntimeException;
 /**
  * This is the base class for both Ok and Err. It should only be used as a return type.
  *
- * @template TValue of mixed
- * @template TError of mixed
+ * @template TValue
+ * @template TError
  */
 abstract class Result {
 

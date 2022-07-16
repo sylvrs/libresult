@@ -16,9 +16,10 @@ declare(strict_types=1);
 namespace libresult;
 
 /**
- * @template TValue of mixed
+ * @template TValue
+ * @template TError
  *
- * @extends Result<TValue, null>
+ * @extends Result<TValue, TError>
  */
 final class Ok extends Result {
 

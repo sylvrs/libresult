@@ -16,16 +16,17 @@ declare(strict_types=1);
 namespace libresult;
 
 /**
- * @template TError of mixed
+ * @template TValue
+ * @template TError
  *
- * @extends Result<null, TError>
+ * @extends Result<TValue, TError>
  */
 final class Err extends Result {
 
 	/**
 	 * @param TError $error
 	 */
-	public function __construct(private mixed $error) {
+	public function __construct(public mixed $error) {
 		parent::__construct();
 	}
 
