@@ -1,6 +1,10 @@
 # libresult
 This library is a PHP-based implementation of the `Result` monad that exists in many popular programming languages, including Haskell, Elm, Kotlin, and Rust.
 
+## Installation
+To install this library using Composer, run the following command:
+`composer require sylvrs/libresult`
+
 ## Usage
 The usage of the library follows similar standards to that of monads in other languages.
 
