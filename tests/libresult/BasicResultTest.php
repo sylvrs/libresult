@@ -18,17 +18,22 @@ use RuntimeException;
 
 class BasicResultTest extends TestCase {
 
-	/**
-	 * @throws \Exception
-	 */
-	public function testBasicResult(): void {
-		$result = $this->generateTestResult();
-		/** @var int|null $value */
+	public function testBasicValue(): void {
+		$result = $this->generateRandomOk();
 		$value = match (true) {
 			$result instanceof Ok => $result->getValue(),
-			$result instanceof Err => throw new \Exception("Result is an Err: {$result->getError()}"),
+			$result instanceof Err => throw new RuntimeException("Expected Ok, got Err"),
 		};
 		$this->assertIsInt($value);
+	}
+
+	public function testBasicError(): void {
+		$result = $this->generateErr();
+		$value = match (true) {
+			$result instanceof Ok => throw new RuntimeException("Expected Ok, got Err"),
+			$result instanceof Err => $result->getError(),
+		};
+		$this->assertIsString($value);
 	}
 
 	public function testErrorOnExtend(): void {
@@ -49,9 +54,14 @@ class BasicResultTest extends TestCase {
 	 *
 	 * @return Result<int, string>
 	 */
-	protected function generateTestResult(): Result {
-		$value = mt_rand(min: 1, max: 2);
-		return $value <= 1 ? new Ok($value) : new Err("Randomly generated error");
+	protected function generateRandomOk(): Result {
+		return new Ok(mt_rand(0, 100));
 	}
 
+	/**
+	 * @return Result<int, string>
+	 */
+	protected function generateErr(): Result {
+		return new Err("uh, oh!");
+	}
 }
