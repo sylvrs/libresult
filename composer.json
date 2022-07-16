@@ -1,0 +1,24 @@
+{
+    "name": "sylvrs/libresult",
+    "description": "A library to add the Result monad from other popular programming languages",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "libresult\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Matthew Jordan",
+            "email": "personal@matthewjordan.xyz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=9.5"
+    }
+}
