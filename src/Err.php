@@ -45,6 +45,6 @@ final class Err extends Result {
 	 * @return array{null, TError}
 	 */
 	public function asArray(): array {
-		return $this->error;
+		return [null, $this->error];
 	}
 }
