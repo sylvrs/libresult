@@ -41,7 +41,7 @@ abstract class Result {
 	 * @param mixed $default
 	 * @return mixed
 	 */
-	public function getOrElse(mixed $default): mixed {
+	public function getOr(mixed $default): mixed {
 		return $this->get() ?? $default;
 	}
 
@@ -51,7 +51,10 @@ abstract class Result {
 	 * @return TValue
 	 */
 	public function unwrap(): mixed {
-		return $this->get() ?? throw new RuntimeException("Expected Ok, got Err");
+		return match (true) {
+			$this instanceof Ok => $this->getValue(),
+			default => throw new RuntimeException("Expected Ok, got Err")
+		};
 	}
 
 	/**
