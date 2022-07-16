@@ -1,4 +1,16 @@
 <?php
+/**
+ *  _ _ _                         _ _
+ * | (_) |                       | | |
+ * | |_| |__  _ __ ___  ___ _   _| | |_
+ * | | | '_ \| '__/ _ \/ __| | | | | __|
+ * | | | |_) | | |  __/\__ \ |_| | | |_
+ * |_|_|_.__/|_|  \___||___/\__,_|_|\__|
+ *
+ * This library is free software licensed under the MIT license.
+ *
+ * Copyright (c) 2022 Matthew Jordan
+ */
 declare(strict_types=1);
 
 namespace libresult;
