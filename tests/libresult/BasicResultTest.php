@@ -27,7 +27,7 @@ class BasicResultTest extends TestCase {
 			$result instanceof Ok => $result->getValue(),
 			$result instanceof Err => throw new RuntimeException("Expected Ok, got Err"),
 			// This will NEVER happen, but it's here to make PHPStan happy
-			default => throw new Exception("Expected Ok, got unknown")
+			default => assert(true),
 		};
 		$this->assertIsInt($value);
 	}
@@ -38,7 +38,7 @@ class BasicResultTest extends TestCase {
 			$result instanceof Ok => throw new RuntimeException("Expected Ok, got Err"),
 			$result instanceof Err => $result->getError(),
 			// This will NEVER happen, but it's here to make PHPStan happy
-			default => throw new Exception("Expected Err, got unknown")
+			default => assert(true),
 		};
 		$this->assertIsString($value);
 	}
