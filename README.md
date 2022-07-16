@@ -27,6 +27,8 @@ From there, there are several ways to get the values from the result:
 $value = match (true) {
     $result instanceof Ok => $result->getValue(),
     $result instanceof Err => $result->getError(),
+    // This will never occur, but is required for PHPStan to be happy in most levels
+    default => assert(true)
 };
 
 // Using `Result->get()`
