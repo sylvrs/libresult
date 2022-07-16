@@ -39,6 +39,7 @@ $value = $result->unwrap();
 Furthermore, there are other methods that may prove useful for working with results:
 ```php
 // Using `Result->asArray()`
+// If the result is Ok, the array shape is [TValue, null]. Otherwise, the array shape is [null, TError]
 [$value, $error] = $result->asArray();
 
 // Using `Result->getOr()`
