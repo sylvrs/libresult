@@ -24,7 +24,7 @@ class BasicResultTest extends TestCase {
 		$result = $this->generateRandomOk();
 		$value = match (true) {
 			$result instanceof Ok => $result->getValue(),
-			$result instanceof Err => throw new RuntimeException("Expected Ok, got Err"),
+			$result instanceof Err => throw new RuntimeException("Expected Ok, got Err")
 		};
 		$this->assertIsInt($value);
 	}
@@ -33,7 +33,7 @@ class BasicResultTest extends TestCase {
 		$result = $this->generateErr();
 		$value = match (true) {
 			$result instanceof Ok => throw new RuntimeException("Expected Ok, got Err"),
-			$result instanceof Err => $result->getError(),
+			$result instanceof Err => $result->getError()
 		};
 		$this->assertIsString($value);
 	}
@@ -44,9 +44,8 @@ class BasicResultTest extends TestCase {
 			public function get(): mixed {
 				return null;
 			}
-
 			public function asArray(): array {
-				return [];
+				return [1, 2];
 			}
 		};
 	}
